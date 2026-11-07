@@ -1,0 +1,15 @@
+# open-in-vscode —— 用 VS Code 打开当前工程的本地 bundle。
+#
+# 为什么不用内置的「Open In...」菜单：DSH 桌面版启动宿主时注入了
+# ELECTRON_RUN_AS_NODE=1（resources/app.asar/lib/main.js desktopNodeEnvironment），
+# 该变量会继承给内置 open-in-app 启动器拉起的 Code.exe，使 VS Code 以 Node 模式
+# 运行并立即以退出码 1 失败（表现为「打开失败，请重试」）。
+# 本插件在 spawn 前剔除该变量，因此 /vscode 与输入框按钮可以正常打开。
+#
+# vscodePath 留空 = 自动探测（PATH 里的 code CLI 同目录上层的 Code.exe、
+# %LOCALAPPDATA%\Programs\Microsoft VS Code\Code.exe 等）。
+- insert:
+    - id: open-in-vscode
+      name: '@local/open-in-vscode'
+      config:
+        vscodePath: ''

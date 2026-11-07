@@ -1,0 +1,50 @@
+{
+  "name": "@local/open-in-vscode",
+  "version": "0.1.0",
+  "private": true,
+  "description": "在 DSH 里用 VS Code 打开当前工程：/vscode 命令 + 输入框快捷按钮 + open_in_vscode 工具；启动前剔除 DSH 桌面版泄漏的 ELECTRON_RUN_AS_NODE。",
+  "type": "module",
+  "main": "./index.mjs",
+  "exports": {
+    ".": "./index.mjs",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "icon": "./icon.svg",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhangyq1831/dsh-plusin-openvscode.git"
+  },
+  "homepage": "https://github.com/zhangyq1831/dsh-plusin-openvscode#readme",
+  "bugs": {
+    "url": "https://github.com/zhangyq1831/dsh-plusin-openvscode/issues"
+  },
+  "files": [
+    "index.mjs",
+    "client.js",
+    "cordis.patch.yml",
+    "locale",
+    "icon.svg",
+    "package.json",
+    "README.md"
+  ],
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Open in VS Code",
+    "description": "Adds a /vscode command and a composer button that open the current session workspace in Visual Studio Code; the launcher strips the ELECTRON_RUN_AS_NODE variable that DSH Desktop leaks to child processes."
+  }
+}

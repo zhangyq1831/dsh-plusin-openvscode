@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "在 VS Code 中打开",
+    "description": "新增 /vscode 命令和输入框按钮，用 Visual Studio Code 打开当前会话的工作目录；启动前会剔除 DSH 桌面版泄漏给子进程的 ELECTRON_RUN_AS_NODE 变量。"
+  }
+}
